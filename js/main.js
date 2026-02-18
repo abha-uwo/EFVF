@@ -187,47 +187,87 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h2 style="text-align: center; margin-bottom: 25px; font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--gold-energy); border-bottom: 1px solid var(--glass-border); padding-bottom: 15px;">
                         PRIVACY POLICY
                     </h2>
-                    <div class="modal-body" style="font-family: 'Inter', sans-serif; color: rgba(240, 244, 248, 0.9);">
+                    <div class="modal-body" style="font-family: 'Inter', sans-serif; color: rgba(240, 244, 248, 0.9); max-height: 60vh; overflow-y: auto; padding-right: 10px;">
                         <div style="text-align: center; margin-bottom: 30px;">
-                            <p style="font-weight: 700; color: var(--gold-light); font-size: 1.1rem;">Protecting your frequency and your digital footprint.</p>
-                            <p style="font-size: 0.9rem; opacity: 0.6;">Effective Date: February 2026</p>
+                            <p style="font-size: 0.9rem; opacity: 0.6;">Last Updated: 18/02/2026</p>
+                            <p style="margin-top: 15px;">Welcome to EFV. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you visit or purchase from our website.</p>
                         </div>
 
                         <div style="margin-bottom: 25px;">
-                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">1. Information EFV™ Collects</h3>
-                            <p style="margin-bottom: 10px; font-size: 0.95rem;">We prioritize minimal data collection. We only store the basic information you explicitly provide:
-                                <ul style="list-style: disc; margin-left: 20px; margin-top: 8px; font-size: 0.95rem; opacity: 0.85;">
-                                    <li>Name / Identifier</li>
-                                    <li>Email address for ecosystem synchronization</li>
-                                    <li>Alignment Intelligence preferences within the UWO™ framework</li>
-                                </ul>
-                            </p>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">1. Information We Collect</h3>
+                            <p style="margin-bottom: 10px;">When you visit or purchase from EFV, we may collect:</p>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>Full Name</li>
+                                <li>Email Address</li>
+                                <li>Phone Number</li>
+                                <li>Billing & Shipping Address</li>
+                                <li>Payment Information (processed securely via payment gateway)</li>
+                                <li>IP address & browsing behavior (for analytics)</li>
+                            </ul>
+                            <p style="margin-top: 10px; font-style: italic;">We do not store your card details.</p>
                         </div>
 
                         <div style="margin-bottom: 25px;">
-                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">2. How We Utilize Your Data</h3>
-                            <p style="margin-bottom: 10px; font-size: 0.95rem;">Your data is used exclusively to:
-                                <ul style="list-style: disc; margin-left: 20px; margin-top: 8px; font-size: 0.95rem; opacity: 0.85;">
-                                    <li>Personalize your frequency calibration experience.</li>
-                                    <li>Synchronize your progress across the EFV™ ecosystem.</li>
-                                    <li>Provide essential updates regarding UWO™ and Alignment Intelligence.</li>
-                                </ul>
-                            </p>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">2. How We Use Your Information</h3>
+                            <p style="margin-bottom: 10px;">We use your information to:</p>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>Process and deliver your order</li>
+                                <li>Send order confirmations & tracking details</li>
+                                <li>Respond to customer support queries</li>
+                                <li>Improve our website experience</li>
+                                <li>Send promotional emails (only if you opt in)</li>
+                            </ul>
                         </div>
 
                         <div style="margin-bottom: 25px;">
-                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">3. Security & Sovereignty</h3>
-                            <p style="margin-bottom: 10px; font-size: 0.95rem;">We believe in data sovereignty. All information is encrypted using high-level security standards. EFV™ maintains a **Zero-Sharing Policy**—we never sell or provide your data to third-party entities.</p>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">3. Payment Security</h3>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>All payments are processed securely through trusted third-party payment gateways. EFV does not store sensitive payment data.</li>
+                            </ul>
                         </div>
 
                         <div style="margin-bottom: 25px;">
-                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">4. Your Rights</h3>
-                            <p style="margin-bottom: 10px; font-size: 0.95rem;">You maintain full control over your digital history. You may request to view, export, or permanently delete your data at any time through our official support channels.</p>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">4. Data Protection</h3>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>We implement appropriate security measures to protect your data. However, no online transmission is 100% secure.</li>
+                            </ul>
                         </div>
 
-                        <div style="padding-top: 20px; border-top: 1px solid var(--glass-border); text-align: center; opacity: 0.6; font-size: 0.85rem;">
-                            Contact: support@uwo.ai<br>
-                            UWO Framework & EFV Ecosystem — Alignment Intelligence
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">5. Cookies</h3>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>We use cookies to enhance browsing experience and track website performance.</li>
+                                <li>You can disable cookies in your browser settings.</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">6. Third-Party Services</h3>
+                            <p style="margin-bottom: 10px;">We may use third-party services for:</p>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>Payment processing</li>
+                                <li>Shipping & logistics</li>
+                                <li>Email marketing</li>
+                                <li>Analytics</li>
+                            </ul>
+                            <p style="margin-top: 10px;">These third parties have their own privacy policies.</p>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">7. Your Rights</h3>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>You may request access, correction, or deletion of your personal data by contacting us.</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">8. Contact Us</h3>
+                            <ul style="list-style: none; margin-left: 0; opacity: 0.85;">
+                                <li><strong>Phone no.</strong> - 83589 90909</li>
+                                <li><strong>Email</strong> - admin@uwo24.com</li>
+                                <li><strong>Company</strong> - Unified Web Options & Services Private Limited</li>
+                                <li><strong>Project</strong> - EFV</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inject Product Detail Modal HTML if not present
     if (!document.getElementById('product-detail-modal')) {
         const productModalHTML = `
-        <div class="product-modal-overlay" id="product-detail-modal">
+        <div class="product-modal-overlay" id="product-detail-modal" style="display: none;">
             <div class="product-modal-card">
                 <div class="pm-close">&times;</div>
                 <div class="pm-left">
@@ -348,7 +348,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('tab-specs').classList.add('active');
 
         // Show Modal
-        modal.classList.add('active');
+        modal.style.display = 'flex';
+        // Small delay to allow display:flex to apply before adding active class for transition
+        requestAnimationFrame(() => {
+            modal.classList.add('active');
+        });
         document.body.classList.add('modal-open');
 
         // NUCLEAR RESET: Clear all filters globally
@@ -396,8 +400,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const qty = parseInt(document.getElementById('pm-qty-value')?.textContent) || 1;
                     if (card) {
                         processAddToCart(id, card, false, qty);
+                        processAddToCart(id, card, false, qty);
                         modal.classList.remove('active');
                         document.body.classList.remove('modal-open');
+                        setTimeout(() => { modal.style.display = 'none'; }, 400);
                     }
                     return;
                 }
@@ -416,6 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             modal.classList.remove('active');
                             document.body.classList.remove('modal-open');
+                            setTimeout(() => { modal.style.display = 'none'; }, 400);
                             // Directly checkout with ONLY this item
                             checkoutOrder([item]);
                         });
@@ -446,6 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (closeBtn) {
                     modal.classList.remove('active');
                     document.body.classList.remove('modal-open');
+                    setTimeout(() => { modal.style.display = 'none'; }, 400);
                     return;
                 }
             });
