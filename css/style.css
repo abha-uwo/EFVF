@@ -36,11 +36,14 @@
     scroll-behavior: smooth;
 }
 
+html,
 body {
-    background-color: transparent;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     color: var(--white-text);
     font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
     line-height: 1.6;
     letter-spacing: -0.01em;
 }
@@ -52,11 +55,11 @@ html {
 }
 
 sup {
-    font-size: 0.55em;
+    font-size: 0.65em;
     vertical-align: super;
     line-height: 0;
-    margin-left: 0.1em;
-    margin-right: 0.1em;
+    margin-left: 0.05em;
+    margin-right: 0.05em;
 }
 
 h1,
@@ -353,7 +356,7 @@ nav .container {
 }
 
 .logo sup {
-    font-size: 0.5em;
+    font-size: 0.6em;
     /* Relative to the span's 0.8rem */
     top: -0.8em;
     left: 1px;

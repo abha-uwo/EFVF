@@ -233,8 +233,7 @@
         flex-direction: row !important;
         align-items: center !important;
         margin-right: 0 !important;
-        gap: 8px !important;
-        /* Reduced gap */
+        gap: 6px !important;
     }
 
     .nav-actions .cart-icon {
@@ -281,8 +280,15 @@
         letter-spacing: 1px;
     }
 
+    .sacred-circle {
+        width: 250px !important;
+        height: 250px !important;
+    }
+
     .hero-content h1 {
-        font-size: clamp(2rem, 12vw, 3.5rem) !important;
+        font-size: clamp(1.8rem, 10vw, 2.5rem) !important;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 
     .section h2 {
@@ -324,8 +330,8 @@
 
     .social-icons {
         justify-content: center !important;
-        gap: 8px !important;
-        flex-wrap: nowrap !important;
+        gap: 12px !important;
+        flex-wrap: wrap !important;
     }
 
     .social-icon-link {
@@ -367,12 +373,12 @@
 .hamburger span {
     display: block;
     width: 28px;
-    height: 3px;
+    height: 3.5px;
     margin: 5px 0;
     background: var(--gold-energy);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 0 12px rgba(255, 211, 105, 0.6);
-    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(255, 211, 105, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
 }
 
 .hamburger.active span:nth-child(1) {

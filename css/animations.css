@@ -626,8 +626,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
+    width: min(500px, 90vw);
+    height: min(500px, 90vw);
     pointer-events: none;
     z-index: 0;
     opacity: 0.15;
@@ -716,10 +716,6 @@
 
 
 /* ---------- Smooth Global Feel ---------- */
-* {
-    transition: all 0.35s ease;
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -730,6 +726,7 @@ body {
     background: radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.04), transparent 40%),
         radial-gradient(circle at 80% 70%, rgba(255, 0, 150, 0.04), transparent 40%);
     overflow-x: hidden;
+    width: 100%;
 }
 
 
