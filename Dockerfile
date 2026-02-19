@@ -10,7 +10,7 @@ COPY . /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Add entrypoint script
-COPY env.sh /docker-entrypoint.d/99-api-config.sh
+COPY docker-entrypoint.sh /docker-entrypoint.d/99-api-config.sh
 RUN chmod +x /docker-entrypoint.d/99-api-config.sh
 
 # Expose port
