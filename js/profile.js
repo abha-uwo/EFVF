@@ -69,6 +69,12 @@ function initializeDashboard(user) {
     document.getElementById('settings-name').value = user.name;
     document.getElementById('settings-email').value = user.email;
 
+    // Sidebar Brief
+    const nameBrief = document.getElementById('user-name-brief');
+    const initialsBrief = document.getElementById('user-initials');
+    if (nameBrief) nameBrief.textContent = user.name;
+    if (initialsBrief) initialsBrief.textContent = user.name.charAt(0).toUpperCase();
+
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
 

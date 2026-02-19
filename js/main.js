@@ -93,30 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initMobileMenu();
 
-    // Custom Cursor Trail (Disabled on mobile for performance)
-    if (!window.matchMedia("(max-width: 768px)").matches) {
-        const cursor = document.createElement('div');
-        cursor.className = 'cursor-trail';
-        document.body.appendChild(cursor);
-
-        Object.assign(cursor.style, {
-            position: 'fixed',
-            width: '20px',
-            height: '20px',
-            background: 'radial-gradient(circle, rgba(255, 211, 105, 0.4) 0%, transparent 70%)',
-            borderRadius: '50%',
-            pointerEvents: 'none',
-            zIndex: '9999',
-            transform: 'translate(-50%, -50%)',
-            transition: 'transform 0.05s linear'
-        });
-
-        window.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-    }
-
     // Smooth Scroll for Navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

@@ -677,31 +677,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Panel Toggle
-    if (cartToggle) {
-        cartToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Check if user is logged in
-            const user = JSON.parse(localStorage.getItem('efv_user'));
-            if (user) {
-                // Redirect to Dashboard
-                window.location.href = 'profile.html';
-                return;
-            }
-
-            const isActive = cartPanel.classList.contains('active');
-            toggleCart(!isActive);
-        });
-    }
-
-    if (closeCart) {
-        closeCart.addEventListener('click', () => toggleCart(false));
-    }
-
     if (cartBackdrop) {
         cartBackdrop.addEventListener('click', () => toggleCart(false));
     }
+
+    // Login CTA Logic
+    function handleLoginClick(e) {
+        e.preventDefault();
+        const user = JSON.parse(localStorage.getItem('efv_user'));
+        if (user) {
+            window.location.href = 'profile.html';
+        } else {
+            openAuthModal('login');
+        }
+    }
+
+    // Attach to any login-btn
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.login-btn')) {
+            handleLoginClick(e);
+        }
+    });
+
+    // Update button text if logged in
+    function refreshLoginButtons() {
+        const user = JSON.parse(localStorage.getItem('efv_user'));
+        document.querySelectorAll('.login-btn').forEach(btn => {
+            if (user) {
+                btn.textContent = 'Profile';
+                // Optional: change icon or style
+            } else {
+                btn.textContent = 'Login';
+            }
+        });
+    }
+    refreshLoginButtons();
 
     // Auth Logic
     const checkoutBtn = document.getElementById('checkout-btn');

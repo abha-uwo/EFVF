@@ -10,6 +10,7 @@ class EFVChatbot {
     }
 
     init() {
+        if (document.getElementById('efv-chatbot')) return;
         this.injectHTML();
         this.attachEventListeners();
     }
@@ -25,19 +26,6 @@ class EFVChatbot {
                     <span class="efv-pulse-ring"></span>
                 </button>
                 
-                <!-- Tooltip with curved arrow -->
-                <div class="efv-chat-tooltip">
-                    <span class="efv-tooltip-text">Ask AI about EFV<sup>™</sup></span>
-                    <svg class="efv-curved-arrow" xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 60 40">
-                        <path d="M 10 5 Q 15 35, 50 35" stroke="#d4af37" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-                        <defs>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#d4af37" />
-                            </marker>
-                        </defs>
-                    </svg>
-                </div>
-
                 <!-- Chat Window -->
                 <div id="efv-chat-window" class="efv-chat-window">
                     <div class="efv-chat-header">
