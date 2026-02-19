@@ -310,6 +310,126 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initModal();
 
+    // Terms & Conditions Modal — exact same UI as Privacy Policy modal
+    const initTermsModal = () => {
+        const termsModalHtml = `
+            <div class="modal-overlay" id="terms-modal">
+                <div class="modal-card">
+                    <button class="modal-close" aria-label="Close Modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h2 style="text-align: center; margin-bottom: 25px; font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--gold-energy); border-bottom: 1px solid var(--glass-border); padding-bottom: 15px;">
+                        TERMS &amp; CONDITIONS
+                    </h2>
+                    <div class="modal-body" style="font-family: 'Inter', sans-serif; color: rgba(240, 244, 248, 0.9); max-height: 60vh; overflow-y: auto; padding-right: 10px;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <p style="font-size: 0.9rem; opacity: 0.6;">Last Updated: 13/02/2026</p>
+                            <p style="margin-top: 15px;">Welcome to EFV. By purchasing "EFV" (Energy–Frequency–Vibration) book from our website, you agree to the following terms:</p>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">1. Product Information</h3>
+                            <p>We sell physical copies (Hardcover / Paperback) and digital formats (E-book / Audiobook) of EFV.</p>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">2. Pricing &amp; Payments</h3>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>All prices are listed in INR.</li>
+                                <li>Payments are processed securely via Razorpay.</li>
+                                <li>We reserve the right to change prices.</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">3. Order Confirmation</h3>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>You will receive an email confirmation after successful payment.</li>
+                                <li>Orders are processed within 2–3 working days.</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">4. Shipping &amp; Delivery (For Physical Books)</h3>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>Delivery timelines depend on location.</li>
+                                <li>Delays due to courier or external factors may occur.</li>
+                                <li>Incorrect shipping details provided by the customer are the customer's responsibility.</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">5. Refund &amp; Cancellation</h3>
+                            <ul style="list-style: disc; margin-left: 20px; opacity: 0.85;">
+                                <li>Physical books: Refunds allowed only if the product is damaged on delivery (opening video required within 48 hours).</li>
+                                <li>Digital products (E-book / Audiobook): Non-refundable once delivered.</li>
+                                <li>Refund processing time: 5–7 business days.</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">6. Intellectual Property</h3>
+                            <p>All EFV content is protected by copyright. Unauthorized reproduction, distribution, or sharing (especially digital formats) is strictly prohibited.</p>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">7. Governing Law</h3>
+                            <p>These terms are governed by the laws of India.</p>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--gold-energy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">8. Contact Information</h3>
+                            <p style="margin-bottom: 10px; font-style: italic; opacity: 0.7;">For support or queries:</p>
+                            <ul style="list-style: none; margin-left: 0; opacity: 0.85;">
+                                <li><strong>Email</strong> – admin@uwo24.com</li>
+                                <li><strong>Company Name</strong> – Unified Web Options and Services Private Limited</li>
+                                <li><strong>Project</strong> – EFV – Energy Frequency Vibration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.insertAdjacentHTML('beforeend', termsModalHtml);
+
+        const termsModal = document.getElementById('terms-modal');
+        const termsCloseBtn = termsModal.querySelector('.modal-close');
+
+        const openTerms = (e) => {
+            if (e) e.preventDefault();
+            document.body.classList.add('modal-open');
+            termsModal.style.display = 'flex';
+            setTimeout(() => termsModal.classList.add('active'), 10);
+        };
+
+        const closeTerms = () => {
+            termsModal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            setTimeout(() => termsModal.style.display = 'none', 400);
+        };
+
+        // Attach to all Terms & Conditions links (terms.html or javascript:void)
+        document.querySelectorAll('a[href*="terms.html"], a[href*="terms-modal"], #tc-footer-link').forEach(link => {
+            link.addEventListener('click', openTerms);
+        });
+
+        termsCloseBtn.addEventListener('click', closeTerms);
+        termsModal.addEventListener('click', (e) => {
+            if (e.target === termsModal) closeTerms();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && termsModal.classList.contains('active')) closeTerms();
+        });
+
+        // Expose globally
+        window.openTermsModal = openTerms;
+        window.closeTermsModal = closeTerms;
+    };
+
+    initTermsModal();
+
     // Admin Navbar Visibility Logic
     window.updateAdminNavbar = () => {
         const userData = JSON.parse(localStorage.getItem('efv_user'));

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Portal | EFV™</title>
+    <title>Admin Portal | EFV&trade;?</title>
 
     <!-- CSS Links -->
     <link rel="stylesheet" href="css/style.css">
@@ -17,7 +17,7 @@
     <!-- Immediate Auth Check: Prevents content flash -->
     <script>
         (function () {
-            const userData = JSON.parse(localStorage.getItem('efv_user'));
+            const userData = JSON.parse(localStorage.getItem('EFV&trade;_user'));
             const isAdmin = sessionStorage.getItem('adminLoggedIn') === 'true' ||
                 (userData && userData.email && userData.email.toLowerCase() === 'admin@uwo24.com');
 
@@ -201,7 +201,7 @@
                 </div>
                 <div class="glass-panel text-center reveal delay-2">
                     <i class="fas fa-coins gold-text" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                    <h3 id="stat-revenue">₹0</h3>
+                    <h3 id="stat-revenue">?0</h3>
                     <p>Total Revenue</p>
                 </div>
                 <div class="glass-panel text-center reveal delay-3">
@@ -323,7 +323,7 @@
 
                 <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                     <div class="form-group">
-                        <label>Price (₹)</label>
+                        <label>Price (?)</label>
                         <input type="number" id="prod-price" class="admin-input" required>
                     </div>
                     <div class="form-group">
@@ -373,7 +373,7 @@
                         <li><a href="about.html">About EFV<sup>TM</sup></a></li>
                         <li><a href="uwo.html">About UWO<sup>TM</sup></a></li>
                         <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="privacy-policy.html">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                         <li><a href="marketplace.html">Marketplace</a></li>
                         <li><a href="Feedback.html">Feedback</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -395,22 +395,22 @@
                             <img src="img/FB.svg" alt="Facebook"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://www.instagram.com/efv_framework/" class="social-icon-link"
+                        <a href="https://www.instagram.com/EFV&trade;_framework/" class="social-icon-link"
                             aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                             <img src="img/Insta (1).svg" alt="Instagram"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://www.linkedin.com/in/efv-framework/" class="social-icon-link"
+                        <a href="https://www.linkedin.com/in/EFV&trade;-framework/" class="social-icon-link"
                             aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                             <img src="img/Linkedin.svg" alt="LinkedIn"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://www.threads.com/@efv_framework" class="social-icon-link" aria-label="Threads"
+                        <a href="https://www.threads.com/@EFV&trade;_framework" class="social-icon-link" aria-label="Threads"
                             target="_blank" rel="noopener noreferrer">
                             <img src="img/Threads.svg" alt="Threads"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://x.com/EfvFrame_work" class="social-icon-link" aria-label="X (Twitter)"
+                        <a href="https://x.com/EFV&trade;Frame_work" class="social-icon-link" aria-label="X (Twitter)"
                             target="_blank" rel="noopener noreferrer">
                             <img src="img/x.png" alt="X (Twitter)"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
@@ -420,7 +420,7 @@
                             <img src="img/YT (1).svg" alt="YouTube"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://in.pinterest.com/EFV_Framework/" class="social-icon-link"
+                        <a href="https://in.pinterest.com/EFV&trade;_Framework/" class="social-icon-link"
                             aria-label="Pinterest" target="_blank" rel="noopener noreferrer">
                             <img src="img/pinterset.png" alt="Pinterest" style="width: 26px; height: 26px;">
                         </a>
@@ -458,7 +458,7 @@
                 // Display Dynamic Click Count
                 const clickCountElement = document.getElementById('admin-click-count');
                 if (clickCountElement) {
-                    clickCountElement.textContent = localStorage.getItem('efv_cart_clicks') || '0';
+                    clickCountElement.textContent = localStorage.getItem('EFV&trade;_cart_clicks') || '0';
                 }
 
                 if (window.loadProducts) window.loadProducts();
@@ -466,7 +466,7 @@
 
             // Real-time Dashboard Sync
             window.addEventListener('storage', (e) => {
-                if (e.key === 'efv_cart_clicks') {
+                if (e.key === 'EFV&trade;_cart_clicks') {
                     const clickCountElement = document.getElementById('admin-click-count');
                     if (clickCountElement) {
                         clickCountElement.textContent = e.newValue || '0';
@@ -483,7 +483,7 @@
 
             // Check session storage or persistent user on load
             if (sessionStorage.getItem('adminLoggedIn') === 'true' ||
-                (localStorage.getItem('efv_user') && JSON.parse(localStorage.getItem('efv_user')).email === 'admin@uwo24.com')) {
+                (localStorage.getItem('EFV&trade;_user') && JSON.parse(localStorage.getItem('EFV&trade;_user')).email === 'admin@uwo24.com')) {
                 showDashboard();
             }
 
@@ -510,7 +510,7 @@
                         if (response.ok) {
                             sessionStorage.setItem('adminToken', data.token);
                             sessionStorage.setItem('adminLoggedIn', 'true');
-                            localStorage.setItem('efv_user', JSON.stringify({ name: data.name, email: data.email, role: 'admin' }));
+                            localStorage.setItem('EFV&trade;_user', JSON.stringify({ name: data.name, email: data.email, role: 'admin' }));
 
                             showDashboard();
                             loginError.style.display = 'none';
@@ -561,7 +561,7 @@
                                 <td style="padding: 15px; font-family: monospace;">${order._id}</td>
                                 <td style="padding: 15px;">${order.customer.name}<br><span style="font-size: 0.8rem; color: #aaa;">${order.customer.email}</span></td>
                                 <td style="padding: 15px; font-size: 0.9rem;">${itemsSummary}</td>
-                                <td style="padding: 15px;">₹${order.totalAmount}</td>
+                                <td style="padding: 15px;">?${order.totalAmount}</td>
                                 <td style="padding: 15px;">${statusSelect}</td>
                                 <td style="padding: 15px;">
                                     <button onclick="viewOrderDetails('${order._id}')" class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">View</button>
@@ -576,7 +576,7 @@
 
                         const revenue = orders.reduce((sum, o) => sum + (o.status !== 'Failed' && o.status !== 'Returned' ? o.totalAmount : 0), 0);
                         if (document.getElementById('stat-revenue'))
-                            document.getElementById('stat-revenue').textContent = '₹' + revenue.toLocaleString();
+                            document.getElementById('stat-revenue').textContent = '?' + revenue.toLocaleString();
 
                         const pending = orders.filter(o => o.status === 'Pending').length;
                         if (document.getElementById('stat-pending'))
@@ -690,7 +690,7 @@
                                 headerRow.style.borderTop = '2px solid rgba(212, 175, 55, 0.3)';
                                 headerRow.innerHTML = `
                                     <td colspan="7" style="padding: 10px 15px; font-weight: bold; color: var(--gold-energy);">
-                                        <i class="fas fa-book"></i> EFV™ Volume ${volNum} (${volProducts.length} formats)
+                                        <i class="fas fa-book"></i> EFV&trade;? Volume ${volNum} (${volProducts.length} formats)
                                     </td>
                                 `;
                                 productTableBody.appendChild(headerRow);
@@ -705,7 +705,7 @@
                                     <td style="padding: 15px;"><img src="${p.thumbnail ? (p.thumbnail.startsWith('http') ? p.thumbnail : 'http://localhost:5000/' + p.thumbnail.replace('src/', '')) : 'img/placeholder.png'}" style="width: 50px; height: 75px; object-fit: cover; border-radius: 4px;"></td>
                                     <td style="padding: 15px;">${p.title}<br><span style="font-size: 0.8rem; color: #aaa;">${p.category || p.type}</span></td>
                                     <td style="padding: 15px;">${p.type}</td>
-                                    <td style="padding: 15px;">₹${p.price}</td>
+                                    <td style="padding: 15px;">?${p.price}</td>
                                     <td style="padding: 15px;">${p.stock || '-'}</td>
                                     <td style="padding: 15px;">
                                         <span style="background: ${buyers > 0 ? 'rgba(16, 185, 129, 0.2)' : 'rgba(255,255,255,0.05)'}; padding: 5px 12px; border-radius: 12px; color: ${buyers > 0 ? '#10b981' : '#888'}; font-weight: bold;">
@@ -869,6 +869,6 @@
 
         });
     </script>
-</body>
+<script src="js/efv-fx.js"></script></body>
 
 </html>

@@ -1,146 +1,118 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | EFV™ – Energy Frequency Vibration</title>
+    <title>Gallery | EFV&trade;? ? Energy Frequency Vibration</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
+
     <link rel="stylesheet" href="css/chatbot.css">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-auto-rows: min-content;
-            gap: 25px;
-            padding: 10px 0;
+        :root {
+            --accent-gold: #FFD369;
+            --luxury-black: #050505;
+            --glass-white: rgba(255, 255, 255, 0.03);
+            --gold-glow: rgba(255, 211, 105, 0.3);
+        }
+
+        .gallery-container {
+            columns: 3 350px;
+            column-gap: 30px;
+            width: 100%;
+            padding: 20px 0;
         }
 
         .gallery-item {
             position: relative;
+            break-inside: avoid;
+            margin-bottom: 30px;
+            border-radius: 24px;
             overflow: hidden;
-            border-radius: 20px;
+            background: var(--luxury-black);
+            border: 1px solid rgba(255, 211, 105, 0.1);
             cursor: pointer;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            grid-column: span 4;
-            height: 400px;
-            /* Fixed height for uniformity */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateZ(0);
+            will-change: transform, border-color, box-shadow;
         }
 
-        /* Bg blur effect layer */
-        .gallery-item-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            filter: blur(20px) brightness(0.6);
-            transform: scale(1.2);
-            /* Remove white edges from blur */
-            z-index: 0;
-        }
-
-        .gallery-item img,
-        .gallery-item video {
+        .gallery-item img {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* No cropping */
-            position: relative;
-            z-index: 1;
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            display: block;
+            height: auto;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: brightness(0.9) contrast(1.1);
         }
 
+        /* Luxury Hover State */
         .gallery-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold-energy);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transform: translateY(-8px) scale(1.01);
+            border-color: var(--accent-gold);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.8),
+                0 0 30px var(--gold-glow);
             z-index: 10;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            filter: brightness(1);
         }
 
+        /* Subtle Overlay Info */
         .gallery-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(3, 5, 9, 0.9), transparent 70%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: flex-end;
-            padding-bottom: 20px;
+            padding: 30px;
             opacity: 0;
-            transition: all 0.4s ease;
-            z-index: 2;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(10px);
         }
 
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
-        }
-
-        .gallery-item h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--gold-energy);
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            transform: translateY(20px);
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover h4 {
             transform: translateY(0);
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 992px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-                grid-auto-rows: auto;
-            }
-
-            .gallery-item {
-                grid-column: span 1 !important;
-                height: 300px;
-            }
+        .gallery-overlay h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
-        @media (max-width: 600px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .gallery-item {
-                height: 350px;
-            }
+        .gallery-overlay span {
+            font-size: 0.75rem;
+            color: rgba(255, 211, 105, 0.6);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        /* Lightbox */
+        /* Smooth Lightbox */
         #lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(3, 5, 9, 0.98);
-            backdrop-filter: blur(20px);
-            z-index: 20000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 10000;
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 40px;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
         }
 
         #lightbox.active {
@@ -151,36 +123,46 @@
         #lightbox-content {
             max-width: 90%;
             max-height: 85vh;
-            border-radius: 20px;
-            box-shadow: 0 0 100px rgba(255, 211, 105, 0.2);
-            border: 1px solid var(--gold-energy);
-            animation: lightBoxPop 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 211, 105, 0.3);
+            box-shadow: 0 0 100px rgba(255, 211, 105, 0.1);
+            transform: scale(0.95);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes lightBoxPop {
-            from {
-                transform: scale(0.9) translateY(20px);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1) translateY(0);
-                opacity: 1;
-            }
+        #lightbox.active #lightbox-content {
+            transform: scale(1);
         }
 
         .close-lightbox {
             position: absolute;
-            top: 30px;
+            top: 40px;
             right: 40px;
-            color: var(--gold-energy);
-            font-size: 3rem;
+            color: var(--accent-gold);
+            font-size: 2.5rem;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .close-lightbox:hover {
-            transform: rotate(90deg) scale(1.2);
+            opacity: 0.7;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 1200px) {
+            .gallery-container {
+                columns: 2 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                columns: 1;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
         }
     </style>
 </head>
@@ -231,53 +213,138 @@
 
     <section class="section">
         <div class="container">
-            <div class="gallery-grid">
-                <!-- Gallery items with new atmospheric assets -->
+            <div class="gallery-container">
+                <!-- 1. Human Interaction (People reading / holding the book) -->
+                <div class="gallery-item reveal" data-type="image" data-src="img/gallery-new-1.jpg">
+                    <img src="img/gallery-new-1.jpg" alt="Person reading EFV Canon" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>MINDSET SHIFT</h4>
+                        <span>Human Interaction</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-type="image" data-src="img/gallery-new-2.jpg">
+                    <img src="img/gallery-new-2.jpg" alt="Holding EFV Canon" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>ENERGY ALIGNMENT</h4>
+                        <span>Human interaction</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-type="image" data-src="img/gallery-new-3.jpg">
+                    <img src="img/gallery-new-3.jpg" alt="Detailed focus on book" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>FOCUSED INTENTION</h4>
+                        <span>Human Interaction</span>
+                    </div>
+                </div>
+
+                <!-- 2. Product close-ups and book detail shots -->
+                <div class="gallery-item reveal" data-type="image" data-src="img/feedback-new-1.jpg">
+                    <img src="img/feedback-new-1.jpg" alt="Book texture detail" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>PREMIUM FINISH</h4>
+                        <span>Product Detail</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-type="image" data-src="img/feedback-new-2.jpg">
+                    <img src="img/feedback-new-2.jpg" alt="Golden foil detail" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>THE ORIGIN CODE</h4>
+                        <span>Product Detail</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-type="image" data-src="img/feedback-new-3.jpg">
+                    <img src="img/feedback-new-3.jpg" alt="Interior layout detail" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>INNER WISDOM</h4>
+                        <span>Product Detail</span>
+                    </div>
+                </div>
+
+                <!-- 3. Lifestyle & environment shots -->
+                <div class="gallery-item reveal" data-type="image" data-src="img/feedback/feedback-4.jpg">
+                    <img src="img/feedback/feedback-4.jpg" alt="Book in calm setting" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>ZEN SPACE</h4>
+                        <span>Lifestyle</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-type="image" data-src="img/feedback/feedback-2.jpg">
+                    <img src="img/feedback/feedback-2.jpg" alt="EFV Canon in Environment" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>VIBRATION HARMONY</h4>
+                        <span>Lifestyle</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-type="image" data-src="img/feedback/feedback-3.jpg">
+                    <img src="img/feedback/feedback-3.jpg" alt="EFV World" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>ENERGY DYNAMICS</h4>
+                        <span>Atmosphere</span>
+                    </div>
+                </div>
+
+
                 <div class="gallery-item reveal" data-type="image" data-src="img/38 (1).svg">
-                    <img src="img/38 (1).svg" alt="Atmospheric Calibration" loading="lazy">
+                    <img src="img/38 (1).svg" alt="Abstract calm aura" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>Calming Aura</h4>
-                        <i class="fas fa-expand gold-text"></i>
+                        <h4>CALMING AURA</h4>
+                        <span>Atmosphere</span>
                     </div>
                 </div>
 
-                <div class="gallery-item reveal delay-1" data-type="image" data-src="img/37 (1).svg">
-                    <img src="img/37 (1).svg" alt="Frequency Pulse" loading="lazy">
+                <!-- 4. Flat-lay product stacks and artistic compositions -->
+                <div class="gallery-item reveal" data-type="image" data-src="img/collection-stack.jpg">
+                    <img src="img/collection-stack.jpg" alt="Collection stack" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>Energy Wave</h4>
-                        <i class="fas fa-expand gold-text"></i>
+                        <h4>THE COLLECTION</h4>
+                        <span>Composition</span>
                     </div>
                 </div>
 
-                <div class="gallery-item reveal delay-2" data-type="image" data-src="img/39 (1).svg">
-                    <img src="img/39 (1).svg" alt="Cosmic Resonance" loading="lazy">
+                <div class="gallery-item reveal" data-type="image" data-src="img/feedback/feedback-5.jpg">
+                    <img src="img/feedback/feedback-5.jpg" alt="Artistic book layout" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>Perfect Balance</h4>
-                        <i class="fas fa-expand gold-text"></i>
+                        <h4>SYMMETRY</h4>
+                        <span>Flat-lay</span>
                     </div>
                 </div>
 
-                <div class="gallery-item reveal delay-3" data-type="image" data-src="img/40 (1).svg">
-                    <img src="img/40 (1).svg" alt="Digital Singularity" loading="lazy">
+                <div class="gallery-item reveal" data-type="image" data-src="img/feedback/feedback-6.jpg">
+                    <img src="img/feedback/feedback-6.jpg" alt="Future vision artistic" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>UWO Origin</h4>
-                        <i class="fas fa-expand gold-text"></i>
+                        <h4>FUTURE OBSERVER</h4>
+                        <span>Artistic</span>
                     </div>
                 </div>
 
-                <div class="gallery-item reveal delay-4" data-type="image" data-src="img/41 (1).svg">
-                    <img src="img/41 (1).svg" alt="Alignment Field" loading="lazy">
+                <!-- Mixed Atmospheric / Energy accents for rhythm -->
+                <div class="gallery-item reveal" data-type="image" data-src="img/37 (1).svg">
+                    <img src="img/37 (1).svg" alt="Energy wave" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>World Harmony</h4>
-                        <i class="fas fa-expand gold-text"></i>
+                        <h4>FREQUENCY PULSE</h4>
+                        <span>Energy</span>
                     </div>
                 </div>
 
-                <div class="gallery-item reveal delay-5" data-type="image" data-src="img/42 (2).svg">
-                    <img src="img/42 (2).svg" alt="Energy Flow" loading="lazy">
+                <div class="gallery-item reveal" data-type="image" data-src="img/39 (1).svg">
+                    <img src="img/39 (1).svg" alt="Cosmic resonance" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>Energy Flow</h4>
-                        <i class="fas fa-expand gold-text"></i>
+                        <h4>COSMIC HARMONY</h4>
+                        <span>Balance</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-type="image" data-src="img/41 (1).svg">
+                    <img src="img/41 (1).svg" alt="Alignment field" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>WORLD HARMONY</h4>
+                        <span>Alignment</span>
                     </div>
                 </div>
             </div>
@@ -298,9 +365,10 @@
                     <h4>Explore</h4>
                     <ul>
                         <li><a href="about.html">About EFV<sup>TM</sup></a></li>
-                        <li><a href="uwo.html">About UWO<sup>TM</sup></a></li>
+                        <li><a href="https://uwo-743928421487.asia-south1.run.app/index.html" target="_blank">About
+                                UWO<sup>TM</sup></a></li>
                         <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="privacy-policy.html">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                         <li><a href="marketplace.html">Marketplace</a></li>
                         <li><a href="Feedback.html">Feedback</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -322,22 +390,22 @@
                             <img src="img/FB.svg" alt="Facebook"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://www.instagram.com/efv_framework/" class="social-icon-link"
+                        <a href="https://www.instagram.com/EFV&trade;_framework/" class="social-icon-link"
                             aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                             <img src="img/Insta (1).svg" alt="Instagram"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://www.linkedin.com/in/efv-framework/" class="social-icon-link"
+                        <a href="https://www.linkedin.com/in/EFV&trade;-framework/" class="social-icon-link"
                             aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                             <img src="img/Linkedin.svg" alt="LinkedIn"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://www.threads.com/@efv_framework" class="social-icon-link" aria-label="Threads"
-                            target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.threads.com/@EFV&trade;_framework" class="social-icon-link"
+                            aria-label="Threads" target="_blank" rel="noopener noreferrer">
                             <img src="img/Threads.svg" alt="Threads"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://x.com/EfvFrame_work" class="social-icon-link" aria-label="X (Twitter)"
+                        <a href="https://x.com/EFV&trade;Frame_work" class="social-icon-link" aria-label="X (Twitter)"
                             target="_blank" rel="noopener noreferrer">
                             <img src="img/x.png" alt="X (Twitter)"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
@@ -347,7 +415,7 @@
                             <img src="img/YT (1).svg" alt="YouTube"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://in.pinterest.com/EFV_Framework/" class="social-icon-link"
+                        <a href="https://in.pinterest.com/EFV&trade;_Framework/" class="social-icon-link"
                             aria-label="Pinterest" target="_blank" rel="noopener noreferrer">
                             <img src="img/pinterset.png" alt="Pinterest" style="width: 26px; height: 26px;">
                         </a>
@@ -368,6 +436,7 @@
     <script src="js/gallery.js"></script>
     <script src="js/cart.js?v=9.0"></script>
     <script src="js/chatbot.js?v=9.0"></script>
+    <script src="js/efv-fx.js"></script>
 </body>
 
 </html>
