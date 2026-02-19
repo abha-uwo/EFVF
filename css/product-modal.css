@@ -280,7 +280,8 @@
 
 .pm-collection-intro p {
     font-size: 0.85rem;
-    opacity: 0.8;
+    color: #fff;
+    opacity: 1;
     line-height: 1.5;
 }
 
@@ -300,8 +301,8 @@
 .pm-tab-btn {
     background: none;
     border: none;
-    color: rgba(255, 211, 105, 0.5);
-    /* Muted gold for inactive */
+    color: rgba(255, 255, 255, 0.5);
+    /* Much more visible off-white for inactive */
     padding: 10px 0;
     font-weight: 700;
     cursor: pointer;
@@ -310,6 +311,7 @@
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    opacity: 0.8;
 }
 
 .pm-tab-btn:hover,
