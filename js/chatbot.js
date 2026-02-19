@@ -3,9 +3,9 @@ class EFVChatbot {
     constructor() {
         this.isOpen = false;
         this.history = [];
-        this.apiUrl = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) 
-            ? `${CONFIG.API_BASE_URL}/api/chat/message` 
-            : 'http://localhost:5000/api/chat/message';
+        this.apiUrl = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL)
+            ? `${CONFIG.API_BASE_URL}/api/chat/message`
+            : 'https://efv-backend-743928421487.asia-south1.run.app/api/chat/message';
         this.init();
     }
 

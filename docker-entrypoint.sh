@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Default to localhost if not set
-API_BASE_URL=${API_BASE_URL:-http://localhost:8080}
+API_BASE_URL=${API_BASE_URL:-https://efv-backend-743928421487.asia-south1.run.app}
 
 echo "Updating API configuration to: $API_BASE_URL"
 

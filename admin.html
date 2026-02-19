@@ -500,7 +500,7 @@
                         btn.textContent = 'Authenticating...';
                         btn.disabled = true;
 
-                        const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'http://localhost:5000';
+                        const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app';
                         const response = await fetch(`${apiBase}/api/auth/admin/login`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -539,7 +539,7 @@
             window.loadOrders = async function () {
                 const token = sessionStorage.getItem('adminToken');
                 try {
-                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'http://localhost:5000';
+                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app';
                     const response = await fetch(`${apiBase}/api/orders`, {
                         headers: { 'Authorization': `Bearer ${token}` }
                     });
@@ -596,7 +596,7 @@
                 if (note === null) return; // Cancelled
 
                 try {
-                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'http://localhost:5000';
+                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app';
                     const response = await fetch(`${apiBase}/api/orders/${id}/status`, {
                         method: 'PUT',
                         headers: {
@@ -644,7 +644,7 @@
                 try {
                     const token = sessionStorage.getItem('adminToken');
 
-                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'http://localhost:5000';
+                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app';
                     // Fetch products and orders in parallel
                     const [productsRes, ordersRes] = await Promise.all([
                         fetch(`${apiBase}/api/products`),
@@ -707,7 +707,7 @@
                                 const tr = document.createElement('tr');
                                 tr.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
                                 tr.innerHTML = `
-                                    <td style="padding: 15px;"><img src="${p.thumbnail ? (p.thumbnail.startsWith('http') ? p.thumbnail : (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL ? CONFIG.API_BASE_URL : 'http://localhost:5000') + '/' + p.thumbnail.replace('src/', '')) : 'img/placeholder.png'}" style="width: 50px; height: 75px; object-fit: cover; border-radius: 4px;"></td>
+                                    <td style="padding: 15px;"><img src="${p.thumbnail ? (p.thumbnail.startsWith('http') ? p.thumbnail : (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app') + '/' + p.thumbnail.replace('src/', '')) : 'img/placeholder.png'}" style="width: 50px; height: 75px; object-fit: cover; border-radius: 4px;"></td>
                                     <td style="padding: 15px;">${p.title}<br><span style="font-size: 0.8rem; color: #aaa;">${p.category || p.type}</span></td>
                                     <td style="padding: 15px;">${p.type}</td>
                                     <td style="padding: 15px;">?${p.price}</td>
@@ -759,7 +759,7 @@
 
                 const token = sessionStorage.getItem('adminToken');
                 try {
-                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'http://localhost:5000';
+                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app';
                     const response = await fetch(`${apiBase}/api/products/${id}`, {
                         method: 'DELETE',
                         headers: { 'Authorization': `Bearer ${token}` }
@@ -807,7 +807,7 @@
                     let uploadData = {};
                     if (coverFile || ebookFile || audioFile) {
                         try {
-                            const uploadRes = await fetch('http://localhost:5000/api/upload', {
+                            const uploadRes = await fetch('https://efv-backend-743928421487.asia-south1.run.app/api/upload', {
                                 method: 'POST',
                                 headers: { 'Authorization': `Bearer ${token}` },
                                 body: formData
@@ -847,7 +847,7 @@
                     };
 
                     try {
-                        const res = await fetch('http://localhost:5000/api/products', {
+                        const res = await fetch('https://efv-backend-743928421487.asia-south1.run.app/api/products', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

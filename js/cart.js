@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const demoToken = btoa(user.email);
-            const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'http://localhost:5000';
+            const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app';
             const response = await fetch(`${apiBase}/api/demo/library`, {
                 headers: { 'Authorization': `Bearer ${demoToken}` }
             });
@@ -604,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const user = JSON.parse(localStorage.getItem('efv_user'));
                 if (user && user.email) {
                     const demoToken = btoa(user.email);
-                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'http://localhost:5000';
+                    const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app';
                     fetch(`${apiBase}/api/demo/add-to-library`, {
                         method: 'POST',
                         headers: {
@@ -1037,7 +1037,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (user && user.email && item && item.id) {
                     try {
                         const demoToken = btoa(user.email);
-                        const res = await fetch(`http://localhost:5000/api/demo/progress/${item.id}`, {
+                        const res = await fetch(`https://efv-backend-743928421487.asia-south1.run.app/api/demo/progress/${item.id}`, {
                             headers: { 'Authorization': `Bearer ${demoToken}` }
                         });
                         const data = await res.json();
@@ -1115,7 +1115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const productId = item ? item.id : null;
 
                         if (productId) {
-                            const res = await fetch(`http://localhost:5000/api/demo/progress/${productId}`, {
+                            const res = await fetch(`https://efv-backend-743928421487.asia-south1.run.app/api/demo/progress/${productId}`, {
                                 headers: { 'Authorization': `Bearer ${demoToken}` }
                             });
                             const data = await res.json();
@@ -1179,7 +1179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (user && user.email && library[index].id) {
                 try {
                     const demoToken = btoa(user.email);
-                    await fetch('http://localhost:5000/api/demo/progress', {
+                    await fetch('https://efv-backend-743928421487.asia-south1.run.app/api/demo/progress', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -1228,7 +1228,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (productId) {
                     const demoToken = btoa(user.email);
                     console.log(`📤 Syncing to backend: ${productId} -> Page ${page}`);
-                    const res = await fetch('http://localhost:5000/api/demo/progress', {
+                    const res = await fetch('https://efv-backend-743928421487.asia-south1.run.app/api/demo/progress', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -1632,7 +1632,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // 2. Create Razorpay Order via Backend
-            const rzpRes = await fetch('http://localhost:5000/api/orders/razorpay', {
+            const rzpRes = await fetch('https://efv-backend-743928421487.asia-south1.run.app/api/orders/razorpay', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ amount: totalAmount })
@@ -1666,7 +1666,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (btn) btn.textContent = 'Verifying Payment...';
 
                     try {
-                        const verifyRes = await fetch('http://localhost:5000/api/orders/verify', {
+                        const verifyRes = await fetch('https://efv-backend-743928421487.asia-south1.run.app/api/orders/verify', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
@@ -1725,7 +1725,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         localStorage.setItem(libKey, JSON.stringify(currentLibrary));
 
                                         const demoToken = btoa(user.email);
-                                        await fetch('http://localhost:5000/api/demo/add-to-library', {
+                                        await fetch('https://efv-backend-743928421487.asia-south1.run.app/api/demo/add-to-library', {
                                             method: 'POST',
                                             headers: {
                                                 'Content-Type': 'application/json',
@@ -1848,7 +1848,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // API Login
-                const response = await fetch('http://localhost:5000/api/auth/login', {
+                const response = await fetch('https://efv-backend-743928421487.asia-south1.run.app/api/auth/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
@@ -1909,7 +1909,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // API Signup
-                const response = await fetch('http://localhost:5000/api/auth/signup', {
+                const response = await fetch('https://efv-backend-743928421487.asia-south1.run.app/api/auth/signup', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, email, password })

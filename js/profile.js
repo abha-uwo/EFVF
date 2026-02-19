@@ -367,7 +367,7 @@ async function initiateDashboardCheckout(items, isSingleItemMode, cartIndexToRem
 
     try {
         // Create Order
-        const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'http://localhost:5000';
+        const apiBase = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app';
         const rzpRes = await fetch(`${apiBase}/api/orders/razorpay`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -465,7 +465,7 @@ window.accessContent = function (type, name) {
 
 // Configuration
 // Configuration
-const API_BASE = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'http://localhost:5000';
+const API_BASE = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://efv-backend-743928421487.asia-south1.run.app';
 
 const CONTENT_CONFIG = {
     pdfWorkerSrc: 'js/pdfjs/pdf.worker.min.js',
