@@ -564,8 +564,11 @@ nav .container {
     flex: 0 0 calc(33.333% - 20px);
     display: flex;
     flex-direction: column;
-    height: 680px;
-    /* Fixed height for absolute symmetry */
+    height: auto;
+    min-height: 480px;
+    /* Auto height to show all text */
+    padding: 15px;
+    /* Tighter padding */
     justify-content: flex-start;
 }
 
@@ -687,6 +690,16 @@ nav .container {
     transform: scale(1.05);
 }
 
+.btn-disabled {
+    border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    cursor: default !important;
+    pointer-events: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
 /* Ensure buttons in cards stay at the bottom */
 .glass-panel .btn {
     margin-top: auto;
@@ -697,8 +710,8 @@ nav .container {
     display: flex;
     flex-direction: column;
     height: 100%;
-    min-height: 620px;
-    /* Increased to match home page baseline */
+    min-height: 580px;
+    /* Reduced from 620px */
 }
 
 .product-info {
@@ -2303,7 +2316,8 @@ body.modal-open {
 }
 
 .flip-card {
-    height: 320px;
+    height: 260px;
+    /* Reduced from 320px */
     perspective: 1000px;
 }
 
@@ -2332,7 +2346,8 @@ body.modal-open {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 20px;
+    /* Reduced from 30px */
     background: rgba(10, 10, 10, 0.6);
     backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
@@ -2352,11 +2367,13 @@ body.modal-open {
 }
 
 .flip-card-front .glow-circle {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    /* Reduced from 90px */
+    height: 70px;
     border-radius: 50%;
     border: 2px solid var(--gold-energy);
-    margin: 0 auto 25px auto;
+    margin: 0 auto 15px auto;
+    /* Tighter margin */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2364,7 +2381,8 @@ body.modal-open {
 }
 
 .flip-card-front h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    /* Slightly smaller text */
     font-weight: 700;
     color: #fff;
     margin: 0;

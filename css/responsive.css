@@ -255,12 +255,22 @@
     .hero-btns {
         flex-direction: column !important;
         width: 100%;
-        gap: 15px !important;
+        max-width: 320px;
+        /* Constrain the button container width */
+        margin-left: auto;
+        margin-right: auto;
+        gap: 12px !important;
     }
 
     .btn {
         width: 100%;
-        max-width: 350px;
+        padding: 12px 24px !important;
+        /* Smaller padding for mobile */
+        font-size: 0.75rem !important;
+        /* Slightly smaller font */
+        letter-spacing: 1px !important;
+        max-width: 280px;
+        /* More reasonable max-width for small screens */
     }
 
     .logo img {
@@ -287,6 +297,35 @@
     /* Handle odd card on tablet if needed, or just let grid handle it */
     .flip-card {
         height: 300px !important;
+    }
+
+    /* Carousel Cards Mobile Fix - show all text and button */
+    .carousel-track>.glass-panel {
+        height: auto !important;
+        min-height: unset !important;
+        padding: 15px !important;
+    }
+
+    .carousel-track>.glass-panel .book-cover {
+        height: 220px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .carousel-track>.glass-panel h3 {
+        font-size: 1rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    .carousel-track>.glass-panel p {
+        font-size: 0.78rem !important;
+        margin: 8px 0 !important;
+        line-height: 1.4 !important;
+    }
+
+    .carousel-track>.glass-panel .btn,
+    .carousel-track>.glass-panel .btn-disabled {
+        padding: 8px 12px !important;
+        font-size: 0.7rem !important;
     }
 }
 
@@ -399,6 +438,39 @@
         width: 100% !important;
         height: 300px !important;
         /* Slightly smaller on mobile */
+    }
+
+    /* Blog Cards Mobile Fix - Match web proportions */
+    .blog-card {
+        height: 320px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .blog-card .blog-image {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .blog-content {
+        padding: 20px 15px !important;
+    }
+
+    .blog-title {
+        font-size: 1.1rem !important;
+    }
+
+    .blog-excerpt {
+        font-size: 0.8rem !important;
+        -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
+    }
+
+    .blog-category {
+        top: 15px !important;
+        left: 15px !important;
+        padding: 5px 12px !important;
+        font-size: 0.6rem !important;
     }
 }
 
