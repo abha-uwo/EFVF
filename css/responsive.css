@@ -427,17 +427,16 @@
         right: -5px;
     }
 
-    /* Flip Cards Responsive Fix */
+    /* Feature Cards Responsive Fix */
     .flip-grid-container {
         display: flex !important;
         flex-direction: column !important;
-        gap: 30px !important;
+        gap: 16px !important;
     }
 
-    .flip-card {
+    .static-feature-card {
         width: 100% !important;
-        height: 300px !important;
-        /* Slightly smaller on mobile */
+        padding: 25px 20px !important;
     }
 
     /* Blog Cards Mobile Fix - Match web proportions */

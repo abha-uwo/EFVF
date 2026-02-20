@@ -21,17 +21,17 @@
         }
 
         .gallery-container {
-            columns: 3 350px;
-            column-gap: 30px;
+            columns: 3 280px;
+            column-gap: 20px;
             width: 100%;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .gallery-item {
             position: relative;
             break-inside: avoid;
-            margin-bottom: 30px;
-            border-radius: 24px;
+            margin-bottom: 18px;
+            border-radius: 16px;
             overflow: hidden;
             background: var(--luxury-black);
             border: 1px solid rgba(255, 211, 105, 0.1);
@@ -45,6 +45,7 @@
             width: 100%;
             display: block;
             height: auto;
+            max-height: 350px;
             object-fit: cover;
             transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
             filter: brightness(0.9) contrast(1.1);
@@ -330,13 +331,6 @@
                 </div>
 
                 <!-- Row 6 Mix -->
-                <div class="gallery-item reveal" data-type="image" data-src="img/feedback/feedback-6.jpg">
-                    <img src="img/feedback/feedback-6.jpg" alt="Future vision artistic" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h4>FUTURE OBSERVER</h4>
-                        <span>Atmosphere</span>
-                    </div>
-                </div>
 
                 <div class="gallery-item reveal" data-type="image" data-src="img/42 (2).svg">
                     <img src="img/42 (2).svg" alt="Universal Code" loading="lazy">
@@ -408,8 +402,8 @@
                             <img src="img/x.png" alt="X (Twitter)"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
-                        <a href="https://www.youtube.com/@efv_framework" class="social-icon-link" aria-label="YouTube" target="_blank"
-                            rel="noopener noreferrer">
+                        <a href="https://www.youtube.com/@efv_framework" class="social-icon-link" aria-label="YouTube"
+                            target="_blank" rel="noopener noreferrer">
                             <img src="img/YT (1).svg" alt="YouTube"
                                 style="width: 32px; height: 32px; transition: transform 0.3s ease, opacity 0.3s ease;">
                         </a>
@@ -424,7 +418,10 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; UWO<sup>TM</sup> &mdash; EFV<sup>TM</sup> is a UWO<sup>TM</sup> Innovation.
+                &copy; <a href="https://uwo-743928421487.asia-south1.run.app/index.html" target="_blank"
+                    style="color: inherit; text-decoration: none;">UWO<sup>TM</sup></a> &mdash; EFV<sup>TM</sup> is a <a
+                    href="https://uwo-743928421487.asia-south1.run.app/index.html" target="_blank"
+                    style="color: inherit; text-decoration: none;">UWO<sup>TM</sup></a> Innovation.
             </div>
         </div>
     </footer>
